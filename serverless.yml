@@ -21,7 +21,7 @@ provider:
   #
   #environment: ${file(env.yml):${self:provider.stage}}
 
-   iamRoleStatements:
+  iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:DescribeTable
@@ -34,6 +34,7 @@ provider:
       Resource: "arn:aws:dynamodb:us-west-2:*:*"
 
 functions:
+  create:
     handler: create.main
     events:
       - http:
