@@ -56,7 +56,7 @@ functions:
     handler: list.main
     events: 
       - http:
-          path: ingedients
+          path: ingredients
           method: get
           cors: true
           authorizer: aws_iam
