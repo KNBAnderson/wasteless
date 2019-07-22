@@ -51,3 +51,12 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+
+  list: 
+    handler: list.main
+    events: 
+      - http:
+          path: ingedients
+          method: get
+          cors: true
+          authorizer: aws_iam
