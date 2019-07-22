@@ -77,4 +77,8 @@ functions:
           path: ingredients/{id}
           method: delete
           cors: true
-          authorizer: aws_iam 
+          authorizer: aws_iam
+
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
