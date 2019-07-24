@@ -1,3 +1,11 @@
-.navbar {
+.navbar-default {
   background-color: #87aa2f;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.nav>li:active , .nav>li:visited {
+  background-color: darkgreen;
 }
