@@ -1,10 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Chango|Krona+One|Poppins&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #000319;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: 'Chango', cursive;
+}
+
+h4, h5, h6 {
+  font-family: 'Krona One', sans-serif;
 }
 
 code {
