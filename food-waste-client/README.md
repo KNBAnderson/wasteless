@@ -1,68 +1,180 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Food Waste Recipes
 
-## Available Scripts
+#### By _**Katlin Anderson**_
 
-In the project directory, you can run:
+## Description
+_View the deployed version here N/A
 
-### `npm start`
+_A full stack web app using a C# backend and React front end._
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup/Installation Requirements
+* _Create an account with AWS_
+* _$ git clone https://github.com/KNBAnderson/food-waste;_
+* _$ npm install_
+* _$ npm install aws-sdk --save-dev_
+* _$ npm install uuid --save_
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Specs
+![picture](/food-waste-client/src/assets/img/ComponentLayout.jpg)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation Requirements
+* Run in browser
 
-### `npm run build`
+## Known Bugs
+There are no known bugs.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* _HTML_
+* _CSS_
+* _JavaScript_
+* _React_
+* _Node_
+* _Jest_
+* _ESLinter_
+* _Babel_
+* _AWS Lambda_
+* _AWS Cognito_
+* _AWS DynamoDB_
+* _AWS S3 Bucket_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### License
 
-### `npm run eject`
+*This software is licensed under the GPL license.*
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Copyright (c) 2019 **_Katlin Anderson_**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Serverless Node.js Starter
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A Serverless starter that adds ES7 syntax, serverless-offline, environment variables, and unit test support. Part of the [Serverless Stack](http://serverless-stack.com) guide.
 
-## Learn More
+[Serverless Node.js Starter](https://github.com/AnomalyInnovations/serverless-nodejs-starter) uses the [serverless-bundle](https://github.com/AnomalyInnovations/serverless-bundle) plugin (an extension of the [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack) plugin) and the [serverless-offline](https://github.com/dherault/serverless-offline) plugin. It supports:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Generating optimized Lambda packages with Webpack**
+- **Use ES7 syntax in your handler functions**
+  - Use `import` and `export`
+- **Run API Gateway locally**
+  - Use `serverless offline start`
+- **Support for unit tests**
+  - Run `npm test` to run your tests
+- **Sourcemaps for proper error messages**
+  - Error message show the correct line numbers
+  - Works in production with CloudWatch
+- **Add environment variables for your stages**
+- **No need to manage Webpack or Babel configs**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### Demo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+A demo version of this service is hosted on AWS - [`https://z6pv80ao4l.execute-api.us-east-1.amazonaws.com/dev/hello`](https://z6pv80ao4l.execute-api.us-east-1.amazonaws.com/dev/hello)
 
-### Analyzing the Bundle Size
+And here is the ES7 source behind it
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+``` javascript
+export const hello = async (event, context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `Go Serverless v1.0! ${(await message({ time: 1, copy: 'Your function executed successfully!'}))}`,
+      input: event,
+    }),
+  };
+};
 
-### Making a Progressive Web App
+const message = ({ time, ...rest }) => new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve(`${rest.copy} (with a delay)`);
+  }, time * 1000)
+);
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Upgrading from v1.x
 
-### Advanced Configuration
+We have detailed instructions on how to upgrade your app to the v2.0 of the starter if you were using v1.x before. [Read about it here](https://github.com/AnomalyInnovations/serverless-nodejs-starter/releases/tag/v2.0).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Requirements
 
-### Deployment
+- [Install the Serverless Framework](https://serverless.com/framework/docs/providers/aws/guide/installation/)
+- [Configure your AWS CLI](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Installation
 
-### `npm run build` fails to minify
+To create a new Serverless project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+``` bash
+$ serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name my-project
+```
+
+Enter the new directory
+
+``` bash
+$ cd my-project
+```
+
+Install the Node.js packages
+
+``` bash
+$ npm install
+```
+
+### Usage
+
+To run unit tests on your local
+
+``` bash
+$ npm test
+```
+
+To run a function on your local
+
+``` bash
+$ serverless invoke local --function hello
+```
+
+To simulate API Gateway locally using [serverless-offline](https://github.com/dherault/serverless-offline)
+
+``` bash
+$ serverless offline start
+```
+
+Run your tests
+
+``` bash
+$ npm test
+```
+
+We use Jest to run our tests. You can read more about setting up your tests [here](https://facebook.github.io/jest/docs/en/getting-started.html#content).
+
+Deploy your project
+
+``` bash
+$ serverless deploy
+```
+
+Deploy a single function
+
+``` bash
+$ serverless deploy function --function hello
+```
+
+To add another function as a new file to your project, simply add the new file and add the reference to `serverless.yml`. The `webpack.config.js` automatically handles functions in different files.
+
+To add environment variables to your project
+
+1. Rename `env.example` to `env.yml`.
+2. Add environment variables for the various stages to `env.yml`.
+3. Uncomment `environment: ${file(env.yml):${self:provider.stage}}` in the `serverless.yml`.
+4. Make sure to not commit your `env.yml`.
+
+### Support
+
+- Send us an [email](mailto:contact@anoma.ly) if you have any questions
+- Open a [new issue](https://github.com/AnomalyInnovations/serverless-nodejs-starter/issues/new) if you've found a bug or have some suggestions.
+- Or submit a pull request!
+
+### Maintainers
+
+Serverless Node.js Starter is maintained by Frank Wang ([@fanjiewang](https://twitter.com/fanjiewang)) & Jay V ([@jayair](https://twitter.com/jayair)). [**Subscribe to our newsletter**](http://eepurl.com/cEaBlf) for updates. Send us an [email](mailto:contact@anoma.ly) if you have any questions.

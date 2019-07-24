@@ -31,3 +31,12 @@ input.form-control {
 input[type=file] {
   width: 100%;
 }
+
+.logo {
+  margin: 0;
+  color: navy;
+}
+
+.logo span {
+  color: white;
+}
