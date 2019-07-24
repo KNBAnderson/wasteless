@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from "react-bootstrap";
+import "./TopNav.css";
+import { LinkContainer } from "react-router-bootstrap";
+
 
 function TopNav() {
     return (
@@ -12,15 +15,23 @@ function TopNav() {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle />
+      </Navbar.Header>
         <Navbar.Collapse>
-          <NavItem href="/ingredients">What's in your pantry</NavItem>
+          <Nav>
+            <LinkContainer to="/ingredients">
+              <NavItem>What's in your pantry?</NavItem>
+            </LinkContainer>
+          </Nav>
       
           <Nav pullRight>
-            <NavItem href="/signup">Signup</NavItem>
-            <NavItem href="/login">Login</NavItem>
+            <LinkContainer to="/signup">
+              <NavItem>Signup</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <NavItem>Login</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
-      </Navbar.Header>
     </Navbar>
     );
 }

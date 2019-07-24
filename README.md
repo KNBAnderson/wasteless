@@ -29,6 +29,7 @@ There are no known bugs.
 * _HTML_
 * _CSS_
 * _JavaScript_
+* _Bootstrap_
 * _React_
 * _Node_
 * _Jest_
