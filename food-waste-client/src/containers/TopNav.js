@@ -26,7 +26,12 @@ function TopNav(props) {
       
           <Nav pullRight>
           {props.isAuthenticated
-            ? <NavItem onClick={props.onLogout}>Logout</NavItem>
+            ? <Fragment>
+                <LinkContainer to="/settings">
+                  <NavItem>Settings</NavItem>
+                </LinkContainer>
+                <NavItem onClick={props.handleLogout}>Logout</NavItem>
+              </Fragment>
             : <Fragment>
                 <LinkContainer to="/signup">
                   <NavItem>Signup</NavItem>
