@@ -3,6 +3,7 @@ import "./App.css";
 import TopNav from "./containers/TopNav";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
+import { withRouter } from "react-router-dom";
 
 class App extends Component {
 
@@ -36,6 +37,7 @@ class App extends Component {
   handleLogout = async event => {
     await Auth.signOut();
     this.userHasAuthenticated(false);
+    this.props.history.push("/login");
   }
 
   render() {
@@ -54,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
