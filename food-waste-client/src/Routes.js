@@ -8,11 +8,13 @@ import ResetPassword from "./containers/ResetPassword";
 import Settings from "./containers/Settings";
 import ChangePassword from "./containers/ChangePassword";
 import ChangeEmail from "./containers/ChangeEmail";
+import Signup from "./containers/Signup";
 
 export default ({ childProps }) =>
   <Switch>
     <AppliedRoute path="/" exact component={Home} props={childProps} />
     <AppliedRoute path="/login" exact component={Login} props={childProps} />
+    <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
     {/* <UnauthenticatedRoute */}
     <AppliedRoute
     // Replace this^ later
