@@ -3,16 +3,35 @@
 #### By _**Katlin Anderson**_
 
 ## Description
-_View the deployed version here N/A
+_View the deployed version here N/A_
 
-_A full stack web app using a C# backend and React front end._
+_A full stack web app using a AWS services and a React front end._
 
 ## Setup/Installation Requirements
 * _Create an account with AWS_
-* _$ git clone https://github.com/KNBAnderson/food-waste;_
+* _$ git clone https://github.com/KNBAnderson/wasteless;_
+* _$ cd wasteless/food-waste-client_
+* _Create a file in the src floder called config.js and add this code to it_
+```
+export default {
+  s3: {
+    REGION: "YOUR_S3_UPLOADS_BUCKET_REGION",
+    BUCKET: "YOUR_S3_UPLOADS_BUCKET_NAME"
+  },
+  apiGateway: {
+    REGION: "YOUR_API_GATEWAY_REGION",
+    URL: "YOUR_API_GATEWAY_URL"
+  },
+  cognito: {
+    REGION: "YOUR_COGNITO_REGION",
+    USER_POOL_ID: "YOUR_COGNITO_USER_POOL_ID",
+    APP_CLIENT_ID: "YOUR_COGNITO_APP_CLIENT_ID",
+    IDENTITY_POOL_ID: "YOUR_IDENTITY_POOL_ID"
+  }
+};
+```
 * _$ npm install_
-* _$ npm install aws-sdk --save-dev_
-* _$ npm install uuid --save_
+* _$ _
 
 ## Specs
 ![picture](/food-waste-client/src/assets/img/ComponentLayout.jpg)
