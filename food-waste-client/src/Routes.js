@@ -7,7 +7,7 @@ import AppliedRoute from "./components/AppliedRoute";
 import ResetPassword from "./containers/ResetPassword";
 import Settings from "./containers/Settings";
 import ChangePassword from "./containers/ChangePassword";
-
+import ChangeEmail from "./containers/ChangeEmail";
 
 export default ({ childProps }) =>
   <Switch>
@@ -34,6 +34,13 @@ export default ({ childProps }) =>
       path="/settings/password"
       exact
       component={ChangePassword}
+      props={childProps}
+    />
+    {/* <AuthenticatedRoute */}
+    <AppliedRoute
+      path="/settings/email"
+      exact
+      component={ChangeEmail}
       props={childProps}
     />
     <Route component={Error404} />

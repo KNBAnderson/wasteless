@@ -30,7 +30,7 @@ function TopNav(props) {
                 <LinkContainer to="/settings">
                   <NavItem>Settings</NavItem>
                 </LinkContainer>
-                <NavItem onClick={props.handleLogout}>Logout</NavItem>
+                <NavItem onClick={props.onLogout}>Logout</NavItem>
               </Fragment>
             : <Fragment>
                 <LinkContainer to="/signup">
