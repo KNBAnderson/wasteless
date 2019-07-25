@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import TopNav from "./containers/TopNav";
 import Routes from "./Routes";
+import { Auth } from "aws-amplify";
 
 class App extends Component {
 
@@ -9,17 +10,32 @@ class App extends Component {
     super(props);
   
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      isAuthenticating: true
     };
+  }
+
+  async componentDidMount() {
+    try {
+      await Auth.currentSession();
+      this.userHasAuthenticated(true);
+    }
+    catch(e) {
+      if (e !== 'No current user') {
+        alert(e);
+      }
+    }
+  
+    this.setState({ isAuthenticating: false });
   }
   
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
 
-  handleLogout = event => {
+  handleLogout = async event => {
+    await Auth.signOut();
     this.userHasAuthenticated(false);
-    console.log(this.state.isAuthenticated)
   }
 
   render() {
@@ -29,6 +45,7 @@ class App extends Component {
     };
 
     return (
+      !this.state.isAuthenticating &&
       <div className="App container">
       <TopNav isAuthenticated={this.state.isAuthenticated} onLogout={this.handleLogout}/>
       <Routes childProps={childProps} />
