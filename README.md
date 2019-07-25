@@ -11,7 +11,7 @@ _A full stack web app using a AWS services and a React front end._
 * _Create an account with AWS_
 * _$ git clone https://github.com/KNBAnderson/wasteless;_
 * _$ cd wasteless/food-waste-client_
-* _Create a file in the src floder called config.js and add this code to it_
+* _Create a file in the src folder called config.js and add this code to it_
 ```
 export default {
   s3: {
@@ -41,7 +41,8 @@ export default {
 * Run in browser
 
 ## Known Bugs
-There are no known bugs.
+* If user refreshed page during sign up, before putting in their verification code, they will have to start over in the sign up process.
+* Issues if user forgets to verify their new email address when updating email address
 
 ## Technologies Used
 
