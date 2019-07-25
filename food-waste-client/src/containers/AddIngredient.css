@@ -1,0 +1,8 @@
+.AddIngredient form {
+    padding-bottom: 15px;
+  }
+  
+  .AddIngredient form  {
+    margin: 0 auto;
+    max-width: 320px;
+  }
