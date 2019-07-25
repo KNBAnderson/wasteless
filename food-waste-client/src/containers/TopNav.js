@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import "./TopNav.css";
 import { LinkContainer } from "react-router-bootstrap";
+import PropTypes from 'prop-types';
 
-
-function TopNav() {
+function TopNav(props) {
+    console.log(props);
     return (
       <Navbar fluid collapseOnSelect>
       <Navbar.Header>
@@ -24,16 +25,26 @@ function TopNav() {
           </Nav>
       
           <Nav pullRight>
-            <LinkContainer to="/signup">
-              <NavItem>Signup</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <NavItem>Login</NavItem>
-            </LinkContainer>
+          {props.isAuthenticated
+            ? <NavItem onClick={props.onLogout}>Logout</NavItem>
+            : <Fragment>
+                <LinkContainer to="/signup">
+                  <NavItem>Signup</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                  <NavItem>Login</NavItem>
+                </LinkContainer>
+              </Fragment>
+          }
           </Nav>
         </Navbar.Collapse>
     </Navbar>
     );
 }
+
+TopNav.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  onLogout: PropTypes.func
+};
 
 export default TopNav;
