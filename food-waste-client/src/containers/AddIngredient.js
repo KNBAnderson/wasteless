@@ -4,7 +4,7 @@ import LoaderButton from "../components/LoaderButton";
 import "./AddIngredient.css";
 import { API } from "aws-amplify";
 
-export default class NewNote extends Component {
+export default class AddIngredient extends Component {
   constructor(props) {
     super(props);
 
@@ -39,7 +39,7 @@ export default class NewNote extends Component {
   }
 
   addIngredient(ingredient) {
-    return API.post("ingredients", "/", {
+    return API.post("ingredients", "/ingredients", {
       body: ingredient
     });
   }
