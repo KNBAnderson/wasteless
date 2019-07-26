@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import PropTypes from 'prop-types';
 
 function TopNav(props) {
-    console.log(props);
+
     return (
       <Navbar fluid collapseOnSelect>
       <Navbar.Header>
