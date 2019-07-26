@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./AddIngredient.css";
 import { API } from "aws-amplify";
+import { s3Upload } from "../libs/awsLibs";
 
 export default class AddIngredient extends Component {
   constructor(props) {
@@ -28,7 +29,9 @@ export default class AddIngredient extends Component {
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
+      const ingredientKey = await s3Upload(this.state.ingredient);
       await this.addIngredient({
+        ingredientKey,
         ingredient: this.state.ingredient
       });
       this.props.history.push("/");

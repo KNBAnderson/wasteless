@@ -42,7 +42,8 @@ export default {
 
 ## Known Bugs
 * If user refreshed page during sign up, before putting in their verification code, they will have to start over in the sign up process.
-* Issues if user forgets to verify their new email address when updating email address
+* Issues if user forgets to verify their new email address when updating email address.
+* User must me logged in to add their items to the pantry.
 
 ## Technologies Used
 
