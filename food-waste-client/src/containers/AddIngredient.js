@@ -34,7 +34,7 @@ export default class AddIngredient extends Component {
         ingredientKey,
         ingredient: this.state.ingredient
       });
-      this.props.history.push("/");
+      this.props.childProps.history.push("/");
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
@@ -48,6 +48,7 @@ export default class AddIngredient extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="AddIngredient">
         <form onSubmit={this.handleSubmit}>
