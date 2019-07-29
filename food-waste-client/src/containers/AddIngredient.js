@@ -34,7 +34,8 @@ export default class AddIngredient extends Component {
         // ingredientKey,
         ingredientName: this.state.ingredientName
       });
-      this.props.childProps.history.push("/");
+      this.setState({ isLoading: false });
+      this.setState({ ingredientName: ""})
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
@@ -55,7 +56,7 @@ export default class AddIngredient extends Component {
           <FormGroup controlId="ingredientName">
             <FormControl
               onChange={this.handleChange}
-              value={this.state.ingredient}
+              value={this.state.ingredientName}
               type="text"
             />
           </FormGroup>
