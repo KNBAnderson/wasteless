@@ -17,35 +17,26 @@ export default class IngredientsList extends Component {
 
   renderIngredientsList(ingredients) {
     return [{}].concat(ingredients).map(
-      (ingredient, i) =>
-        i !== 0
-          ? <LinkContainer
-              key={ingredient.ingredientId}
-              to={`/ingredients/${ingredient.ingredientId}`}
-            >
-              <ListGroupItem header={ingredient.content.trim().split("\n")[0]}>
-                {"Created: " + new Date(ingredient.createdAt).toLocaleString()}
-              </ListGroupItem>
-            </LinkContainer>
-          : <LinkContainer
-              key="new"
-              to="/ingredients/new"
-            >
-              <ListGroupItem>
-                <h4>
-                  <b>{"\uFF0B"}</b> Create a new note
-                </h4>
-              </ListGroupItem>
-            </LinkContainer>
+      (ingredient) =>
+      console.log(ingredient)
+        // i !== 0
+        //   ? <ListGroupItem header={ingredient.split("\n")[0]}>
+        //     {"Created: " + new Date(ingredient.createdAt).toLocaleString()}
+        //   </ListGroupItem>
+        //   : <ListGroupItem>
+        //       <h4>
+        //         You have no ingredients in your pantry yet
+        //       </h4>
+        //     </ListGroupItem>
     );
   }
 
   async componentDidMount() {
-    if (!this.props.isAuthenticated) {
+    if (!this.props.childProps.isAuthenticated) {
       return;
     }
     try {
-      const ingredients = await this.ingredients();
+      const ingredients = await this.getIngredients();
       this.setState({ ingredients });
     } catch (e) {
       alert(e);
@@ -53,16 +44,17 @@ export default class IngredientsList extends Component {
     this.setState({ isLoading: false });
   }
   
-  ingredients() {
+  getIngredients() {
     return API.get("ingredients", "/ingredients");
   }
 
   render() {
+    this.getIngredients()
     return (
       <div className="ingredients">
         <PageHeader>What's in your pantry</PageHeader>
         <ListGroup>
-          {!this.state.isLoading && this.renderIngredientsList(this.state.ingredients)}
+          {this.renderIngredientsList(this.state.ingredients)}
         </ListGroup>
       </div>
     );

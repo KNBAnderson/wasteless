@@ -17,7 +17,7 @@ class Pantry extends Component {
   render() {
     return (
       <div className="Pantry">
-      {/* <IngredientsList ingredients={this.state.ingredients}/> */}
+      <IngredientsList ingredients={this.state.ingredients} childProps={this.props}/>
       <AddIngredient childProps={this.props}/>
       </div>
     );
