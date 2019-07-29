@@ -18,19 +18,38 @@ export default class IngredientsList extends Component {
   renderIngredientsList(ingredients) {
     return [{}].concat(ingredients).map(
       (ingredient) =>
-      console.log()
-        // i !== 0
-        //   ? <ListGroupItem header={ingredient.split("\n")[0]}>
-        //     {"Created: " + new Date(ingredient.createdAt).toLocaleString()}
-        //   </ListGroupItem>
-        //   : <ListGroupItem>
-        //       <h4>
-        //         You have no ingredients in your pantry yet
-        //       </h4>
-        //     </ListGroupItem>
+      this.state.ingredients.length != 0
+          ? <li 
+            id = {ingredient.ingredientId}>
+            {ingredient.ingredientName}
+          </li>
+          : <h4>
+              You have no ingredients in your pantry yet
+            </h4>
     );
   }
 
+  renderLoadMessage() {
+    return (
+      <h3>Your list is loading...</h3>
+    )
+  }
+
+  getIngredients() {
+    return API.get("ingredients", "/ingredients");
+  }
+  
+  async createIngredientList() {
+    const list = await this.getIngredients();
+    let ingredientArray = [];
+    list.forEach(ingredientObj => {
+      if (ingredientObj.ingredientName) {
+        ingredientArray.push(ingredientObj)
+      }
+    });
+    return ingredientArray
+  }
+  
   async componentDidMount() {
     if (!this.props.childProps.isAuthenticated) {
       return;
@@ -44,30 +63,15 @@ export default class IngredientsList extends Component {
     }
     this.setState({ isLoading: false });
   }
-  
-  getIngredients() {
-    return API.get("ingredients", "/ingredients");
-  }
-
-  async createIngredientList() {
-    const list = await this.getIngredients();
-    let ingredientArray = [];
-    list.forEach(ingredientObj => {
-      if (ingredientObj.ingredientName) {
-        ingredientArray.push(ingredientObj.ingredientName)
-      }
-    });
-    return ingredientArray
-  }
 
   render() {
     this.getIngredients()
     return (
       <div className="ingredients">
         <PageHeader>What's in your pantry</PageHeader>
-        <ListGroup>
-          {this.renderIngredientsList(this.state.ingredients)}
-        </ListGroup>
+        <ul>
+          {this.state.isLoading ? this.renderLoadMessage(): this.renderIngredientsList(this.state.ingredients)}
+        </ul>
       </div>
     );
   }
