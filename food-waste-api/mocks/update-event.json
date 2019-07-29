@@ -1,7 +1,7 @@
 {
-  "body": "{\"content\":\"new world\",\"attachment\":\"new.jpg\"}",
+  "body": "{\"ingredientName\":\"cheddar cheese\"}",
   "pathParameters": {
-    "id": "578eb840-f70f-11e6-9d1a-1359b3b22944"
+    "id": "9932bbe5-194e-4b21-bd5e-be1fd615be53"
   },
   "requestContext": {
     "identity": {
