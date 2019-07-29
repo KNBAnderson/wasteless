@@ -31,7 +31,7 @@ export default {
 };
 ```
 * _$ npm install_
-* _$ _
+* _$ npm run start_
 
 ## Specs
 ![picture](/food-waste-client/src/assets/img/ComponentLayout.jpg)

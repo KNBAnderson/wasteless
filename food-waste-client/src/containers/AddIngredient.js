@@ -11,12 +11,12 @@ export default class AddIngredient extends Component {
 
     this.state = {
       isLoading: null,
-      ingredient: ""
+      ingredientName: ""
     };
   }
 
   validateForm() {
-    return this.state.ingredient.length > 0;
+    return this.state.ingredientName.length > 0;
   }
 
   handleChange = event => {
@@ -29,10 +29,10 @@ export default class AddIngredient extends Component {
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
-      const ingredientKey = await s3Upload(this.state.ingredient);
+      // const ingredientKey = await s3Upload(this.state.ingredientName);
       await this.addIngredient({
-        ingredientKey,
-        ingredient: this.state.ingredient
+        // ingredientKey,
+        ingredientName: this.state.ingredientName
       });
       this.props.childProps.history.push("/");
     } catch (e) {
@@ -48,14 +48,13 @@ export default class AddIngredient extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.childProps)
     return (
       <div className="AddIngredient">
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="ingredient">
+          <FormGroup controlId="ingredientName">
             <FormControl
               onChange={this.handleChange}
-              id = "ingredient"
               value={this.state.ingredient}
               type="text"
             />
