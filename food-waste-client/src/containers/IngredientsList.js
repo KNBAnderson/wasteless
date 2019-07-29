@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { PageHeader } from "react-bootstrap";
 import "./IngredientsList.css";
 
 
@@ -9,29 +8,30 @@ export default class IngredientsList extends Component {
   }
 
   renderIngredientsList(ingredients) {
-    return [{}].concat(ingredients).map(
+    return ingredients.map(
       (ingredient) =>
-      this.props.ingredients.length !== 0
+      this.props.ingredients.length !== 0 && !this.props.listIsLoading
           ? <li 
-            id = {ingredient.ingredientId}>
+            key = {ingredient.ingredientId}>
             {ingredient.ingredientName}
           </li>
           : <h4>
               You have no ingredients in your pantry yet
             </h4>
     );
+
   }
 
   renderLoadMessage() {
     return (
-      <h3>Your list is loading...</h3>
+      <h4>Your list is loading...</h4>
     )
   }
 
   render() {
     return (
       <div className="ingredients">
-        <PageHeader>What's in your pantry</PageHeader>
+        <h1>What's in your pantry</h1>
         <ul>
           {this.props.listIsLoading ? this.renderLoadMessage(): this.renderIngredientsList(this.props.ingredients)}
         </ul>
