@@ -18,7 +18,7 @@ export default class IngredientsList extends Component {
   renderIngredientsList(ingredients) {
     return [{}].concat(ingredients).map(
       (ingredient) =>
-      console.log(ingredient)
+      console.log()
         // i !== 0
         //   ? <ListGroupItem header={ingredient.split("\n")[0]}>
         //     {"Created: " + new Date(ingredient.createdAt).toLocaleString()}
@@ -36,8 +36,9 @@ export default class IngredientsList extends Component {
       return;
     }
     try {
-      const ingredients = await this.getIngredients();
+      const ingredients = await this.createIngredientList();
       this.setState({ ingredients });
+      console.log(this.state.ingredients);
     } catch (e) {
       alert(e);
     }
@@ -46,6 +47,17 @@ export default class IngredientsList extends Component {
   
   getIngredients() {
     return API.get("ingredients", "/ingredients");
+  }
+
+  async createIngredientList() {
+    const list = await this.getIngredients();
+    let ingredientArray = [];
+    list.forEach(ingredientObj => {
+      if (ingredientObj.ingredientName) {
+        ingredientArray.push(ingredientObj.ingredientName)
+      }
+    });
+    return ingredientArray
   }
 
   render() {

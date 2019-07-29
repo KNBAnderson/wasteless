@@ -49,7 +49,6 @@ export default class AddIngredient extends Component {
   }
 
   render() {
-    console.log(this.props.childProps)
     return (
       <div className="AddIngredient">
         <form onSubmit={this.handleSubmit}>
