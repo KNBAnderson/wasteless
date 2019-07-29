@@ -1,24 +1,17 @@
 import React, { Component } from "react";
-import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { PageHeader } from "react-bootstrap";
 import "./IngredientsList.css";
-import { API } from "aws-amplify";
-import { LinkContainer } from "react-router-bootstrap";
 
 
 export default class IngredientsList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isLoading: true,
-      ingredients: []
-    };
   }
 
   renderIngredientsList(ingredients) {
     return [{}].concat(ingredients).map(
       (ingredient) =>
-      this.state.ingredients.length != 0
+      this.props.ingredients.length !== 0
           ? <li 
             id = {ingredient.ingredientId}>
             {ingredient.ingredientName}
@@ -35,42 +28,12 @@ export default class IngredientsList extends Component {
     )
   }
 
-  getIngredients() {
-    return API.get("ingredients", "/ingredients");
-  }
-  
-  async createIngredientList() {
-    const list = await this.getIngredients();
-    let ingredientArray = [];
-    list.forEach(ingredientObj => {
-      if (ingredientObj.ingredientName) {
-        ingredientArray.push(ingredientObj)
-      }
-    });
-    return ingredientArray
-  }
-  
-  async componentDidMount() {
-    if (!this.props.childProps.isAuthenticated) {
-      return;
-    }
-    try {
-      const ingredients = await this.createIngredientList();
-      this.setState({ ingredients });
-      console.log(this.state.ingredients);
-    } catch (e) {
-      alert(e);
-    }
-    this.setState({ isLoading: false });
-  }
-
   render() {
-    this.getIngredients()
     return (
       <div className="ingredients">
         <PageHeader>What's in your pantry</PageHeader>
         <ul>
-          {this.state.isLoading ? this.renderLoadMessage(): this.renderIngredientsList(this.state.ingredients)}
+          {this.props.listIsLoading ? this.renderLoadMessage(): this.renderIngredientsList(this.props.ingredients)}
         </ul>
       </div>
     );
