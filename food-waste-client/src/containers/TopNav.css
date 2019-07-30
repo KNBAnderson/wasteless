@@ -1,5 +1,7 @@
 .navbar-default {
   background-color: #87aa2f;
+  margin-bottom: 0;
+  border: none;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -8,4 +10,9 @@
 
 .nav>li:active , .nav>li:visited {
   background-color: darkgreen;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+  color: white;
 }

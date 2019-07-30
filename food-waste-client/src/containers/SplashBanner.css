@@ -1,0 +1,37 @@
+.lander {
+    background-image: url('../assets/img/Fruits.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+}
+
+.lander h1 {
+    /* background-color: #a3444480; */
+    text-shadow: 2px 2px #b811ce;
+    margin-top: 200px;
+}
+
+.lander Button {
+    margin: 5px;
+    width: 220px;
+    color: white;
+    border-color: navy;
+    background-color: #c70c3b;
+}
+
+@media screen and (min-width: 1645px) {
+    .lander {
+      height: 1000px;
+    }
+
+    .lander h1 {
+        margin-top: 380px;
+        font-size: 100px;
+    }
+
+    .lander Button {
+        margin: 5px;
+        width: 300px;
+        font-size: 20px;
+    }
+  }

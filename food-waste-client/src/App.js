@@ -48,7 +48,7 @@ class App extends Component {
 
     return (
       !this.state.isAuthenticating &&
-      <div className="App container">
+      <div className="App notContainer">
       <TopNav isAuthenticated={this.state.isAuthenticated} onLogout={this.handleLogout}/>
       <Routes childProps={childProps} />
       </div>
