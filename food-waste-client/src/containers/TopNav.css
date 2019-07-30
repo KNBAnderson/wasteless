@@ -2,6 +2,7 @@
   background-color: #87aa2f;
   margin-bottom: 0;
   border: none;
+  border-radius: none;
 }
 
 .navbar-default .navbar-nav>li>a {

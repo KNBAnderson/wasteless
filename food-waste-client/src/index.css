@@ -40,3 +40,7 @@ input[type=file] {
 .logo span {
   color: white;
 }
+
+Button {
+  background-color: #7D1538;
+}

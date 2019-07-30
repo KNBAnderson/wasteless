@@ -2,10 +2,10 @@ import React from 'react';
 import "./Home.css";
 import SplashBanner from './SplashBanner';
 
-function Home() {
+function Home(props) {
     return (
         <div className="Home">
-          <SplashBanner/>
+          <SplashBanner props={props}/>
         </div>
     );
 }
