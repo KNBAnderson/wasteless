@@ -17,7 +17,7 @@ function SplashBanner(props) {
             </Link>
         </div>
         :<div id="banner-buttons">
-            <Link to="/pantry">
+            <Link to="/ingredients">
                 <Button id="pantry-button">Manage your pantry</Button>
             </Link>
         </div>}
