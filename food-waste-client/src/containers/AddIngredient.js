@@ -23,7 +23,6 @@ export default class AddIngredient extends Component {
           </FormGroup>
           <LoaderButton
             block
-            bsStyle="primary"
             bsSize="large"
             disabled={!this.props.validateForm()}
             type="submit"

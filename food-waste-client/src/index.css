@@ -42,14 +42,14 @@ input[type=file] {
 }
 
 
-.btn-default:hover {
+.btn:hover, .btn-default[disabled]:hover {
   color: black;
   background-color: #87aa2f;
   transition: .5s;
 }
 
-.btn-default {
-  margin: 5px;
+.btn {
+  margin: 0 auto;
   width: 220px;
   color: white;
   border-color: #BC2C1A;

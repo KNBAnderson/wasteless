@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AddIngredient from "./AddIngredient";
 import IngredientsList from "./IngredientsList"
 import { API } from "aws-amplify";
+import "./Pantry.css";
 
 class Pantry extends Component {
 
