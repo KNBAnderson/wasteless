@@ -41,6 +41,17 @@ input[type=file] {
   color: white;
 }
 
-Button {
+
+.btn-default:hover {
+  color: black;
+  background-color: #87aa2f;
+  transition: .5s;
+}
+
+.btn-default {
+  margin: 5px;
+  width: 220px;
+  color: white;
+  border-color: #BC2C1A;
   background-color: #7D1538;
 }

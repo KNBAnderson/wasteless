@@ -1,0 +1,26 @@
+#about-text {
+  /* width: 900px; */
+  max-width: 1400px;
+  
+}
+
+.about {
+  box-sizing: border-box;
+  padding: 25px;
+  background-color: #87aa2f;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.about h2 {
+  margin: 0;
+  color: navy;
+}
+
+.about Button {
+  height: 35px;
+  align-self: center;
+  width: fit-content;
+  margin: 0 auto;
+}

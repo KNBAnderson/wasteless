@@ -7,22 +7,8 @@
 
 .lander h1 {
     /* background-color: #a3444480; */
-    text-shadow: 2px 2px #BC2C1A;
+    text-shadow: 2px 2px #87aa2f;
     margin-top: 200px;
-}
-
-.lander Button {
-    margin: 5px;
-    width: 220px;
-    color: white;
-    border-color: #BC2C1A;
-    background-color: #7D1538;
-}
-
-.lander Button:hover {
-    color: black;
-    background-color: #87aa2f;
-    transition: .5s;
 }
 
 @media screen and (min-width: 1645px) {
