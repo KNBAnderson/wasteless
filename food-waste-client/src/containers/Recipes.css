@@ -1,0 +1,24 @@
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipes .card {
+  text-align: center;
+  width: 350px;
+  margin: 8px;
+  border: 2px solid navy;
+  background-color: white;
+  padding: 15px;
+}
+
+.recipes {
+  background-color: navy;
+  padding: 25px 10px;
+}
+
+.recipes h1 {
+  text-align: center;
+  color: #87aa2f;
+}
