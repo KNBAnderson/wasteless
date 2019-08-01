@@ -3,7 +3,7 @@
 #### By _**Katlin Anderson**_
 
 ## Description
-_View the deployed version here N/A_
+_View the deployed version here http://food-waste-recipe.s3-website-us-west-2.amazonaws.com_
 
 _A full stack web app using a AWS services and a React front end._
 
