@@ -10,6 +10,7 @@ import ChangePassword from "./containers/ChangePassword";
 import ChangeEmail from "./containers/ChangeEmail";
 import Signup from "./containers/Signup";
 import Pantry from "./containers/Pantry";
+import Recipes from "./containers/Recipes";
 
 export default ({ childProps }) =>
   <Switch>
@@ -17,7 +18,7 @@ export default ({ childProps }) =>
     <AppliedRoute path="/login" exact component={Login} props={childProps} />
     <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
     <AppliedRoute path="/ingredients" exact component={Pantry} props={childProps} />
-
+    <AppliedRoute path="/recipes" exact component={Recipes} props={childProps}/>
     {/* <UnauthenticatedRoute */}
     <AppliedRoute
     // Replace this^ later
