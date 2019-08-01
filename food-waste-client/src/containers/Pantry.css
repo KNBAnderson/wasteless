@@ -1,5 +1,11 @@
 .Pantry {
   color: navy;
   padding: 25px;
+  margin: 0 auto;
 }
 
+.Pantry Link{
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}

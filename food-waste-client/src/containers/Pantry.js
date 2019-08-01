@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import AddIngredient from "./AddIngredient";
 import IngredientsList from "./IngredientsList"
 import { API } from "aws-amplify";
-import { Button } from "react-bootstrap";
 import "./Pantry.css";
 import { Link } from 'react-router-dom';
+import LoaderButton from "../components/LoaderButton";
 
 class Pantry extends Component {
   
@@ -96,8 +96,12 @@ class Pantry extends Component {
       <IngredientsList ingredients={this.state.ingredients} listIsLoading={this.state.listIsLoading} childProps={this.props}/>
       <AddIngredient childProps={this.props} ingredientName={this.state.ingredientName} isLoading={this.state.buttonIsLoading} onSubmit={this.handleSubmit} onChange={this.handleChange} validateForm={this.validateForm}/>
       <Link to="/recipes">
-        <Button onClick={() => this.props.handleAPICall(this.getIngredientNames())}>Recipes</Button>
-        </Link>
+        <LoaderButton onClick={() => this.props.handleAPICall(this.getIngredientNames())}
+        block
+        bsSize="large"
+        text="Search for recipes"
+        type="button"/>
+      </Link>
       </div>
     );
   }
