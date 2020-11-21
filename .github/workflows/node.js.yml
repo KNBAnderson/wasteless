@@ -13,7 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      working-directory: ./food-waste-client 
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
@@ -25,5 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+      working-directory: ${{env.working-directory}}
     - run: npm run build --if-present
+      working-directory: ${{env.working-directory}}
     - run: npm test
+      working-directory: ${{env.working-directory}}
+
