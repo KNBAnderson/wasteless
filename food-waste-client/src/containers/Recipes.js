@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Recipes.css";
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+ CardSubtitle } from 'reactstrap';
 
 function findUsedIngredients(recipe) {
   let array = [];
@@ -20,9 +20,9 @@ function findMissedIngredients(recipe) {
 }
 
 export default class Recipes extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
 
   render() {

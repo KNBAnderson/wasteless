@@ -4,13 +4,11 @@ import LoaderButton from "../components/LoaderButton";
 import "./AddIngredient.css";
 
 export default class AddIngredient extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
-  
-
-  render() {
+    render() {
     return (
       <div className="AddIngredient">
         <form onSubmit={this.props.onSubmit}>
